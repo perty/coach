@@ -3,21 +3,25 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
     <title>Coach page</title>
-    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet'
+          type='text/css'/>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet"/>
 </head>
 <body>
-<div id="bd">
-<h1>Transcript</h1>
-<div wicket:id="transcript">
+<wicket:extend>
+    <div id="bd">
+        <h1>Welcome</h1>
+        <p>Please describe your problem and try to answer the coach's questions.</p>
+        <div wicket:id="transcript">
 
-</div>
-<div>
-    <form wicket:id="form">
-        Answer:
-        <input wicket:id="answer" autofocus/><br/>
-    </form>
-</div>
-</div>
+        </div>
+        <div>
+            <form wicket:id="form">
+                <b>Answer:</b>
+                <input style="width: 100%" wicket:id="answer" autofocus/><br/>
+            </form>
+        </div>
+    </div>
+</wicket:extend>
 </body>
 </html>

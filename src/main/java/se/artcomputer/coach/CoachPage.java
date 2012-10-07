@@ -1,24 +1,23 @@
 package se.artcomputer.coach;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.repeater.RepeatingView;
-import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
 import java.io.Serializable;
 
-public class CoachPage extends WebPage {
+public class CoachPage extends BasePage {
     static final String TRANSCRIPT = "transcript";
     static final String FORM = "form";
     static final String ANSWER_FIELD = "answer";
 
     private final RepeatingView transcript;
+    private final QuestionMaker questionMaker;
 
-    public CoachPage() {
+    public CoachPage(QuestionMaker questionMaker) {
+        this.questionMaker = questionMaker;
         transcript = new RepeatingView(TRANSCRIPT);
         add(transcript);
         add(new CoachForm(FORM));
@@ -34,8 +33,13 @@ public class CoachPage extends WebPage {
 
         @Override
         protected void onSubmit() {
-            transcript.add(new Label(transcript.newChildId(), data.answer));
+            addText(data.answer);
+            addText(questionMaker.nextQuestion());
             data.answer = "";
+        }
+
+        private void addText(String text) {
+            transcript.add(new Label(transcript.newChildId(), text));
         }
     }
 
