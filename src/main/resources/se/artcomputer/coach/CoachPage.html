@@ -3,24 +3,22 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
     <title>Coach page</title>
-    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet'
-          type='text/css'/>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet"/>
 </head>
 <body>
 <wicket:extend>
-    <div id="bd">
-        <h1>Welcome</h1>
-        <p>Please describe your problem and try to answer the coach's questions.</p>
-        <div wicket:id="transcript">
+    <h1>Welcome</h1>
 
-        </div>
-        <div>
-            <form wicket:id="form">
-                <label for="answer"><b><u>A</u>nswer:</b></label>
-                <input id="answer" accesskey="A" style="width: 100%" wicket:id="answer" autofocus/><br/>
-            </form>
-        </div>
+    <p>Please describe your problem and try to answer the coach's questions.</p>
+
+    <p>Tip: press Alt-A to focus on the input field, should it not happen automatically.</p>
+
+    <div wicket:id="transcript"/>
+
+    <div>
+        <form wicket:id="form">
+            <label for="answer"><b><u>A</u>nswer:</b></label>
+            <input id="answer" accesskey="A" style="width: 100%" wicket:id="answer" autofocus/><br/>
+        </form>
     </div>
 </wicket:extend>
 </body>
